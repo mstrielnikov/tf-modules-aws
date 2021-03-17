@@ -1,5 +1,5 @@
 module "dns_host_name" {
-  source    = "git::https://github.com/matkovskiy/tf-modules.git//aws-route53-cluster-hostname?ref=tags/0.0.25"
+  source    = "git::https://github.com/matkovskiy/tf-modules.git//aws-route53-cluster-hostname"
   version  = "0.12.0"
   enabled  = length(var.dns_zone_id) > 0 && module.this.enabled
   dns_name = var.host_name
