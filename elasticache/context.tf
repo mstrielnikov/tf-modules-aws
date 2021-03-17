@@ -19,9 +19,7 @@
 #
 
 module "this" {
-  source = "git::https://github.com/mstrielnikov/tf-modules.git//aws-null-label?ref=tags/0.0.25"
-  version = "0.24.1" # requires Terraform >= 0.13.0
-
+  source = "git::https://github.com/matkovskiy/tf-modules.git//aws-null-label"
   enabled             = var.enabled
   namespace           = var.namespace
   environment         = var.environment
