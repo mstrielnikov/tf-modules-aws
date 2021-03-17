@@ -3,9 +3,7 @@
 #
 
 module "dns" {
-  source  = "git::https://github.com/matkovskiy/tf-modules.git//aws-null-label?ref=tags/0.0.25"
-  version = "0.12.0"
-
+  source  = "git::https://github.com/matkovskiy/tf-modules.git//aws-null-label"
   enabled  = module.this.enabled && var.zone_id != "" ? true : false
   dns_name = var.dns_subdomain != "" ? var.dns_subdomain : module.this.id
   ttl      = 60
