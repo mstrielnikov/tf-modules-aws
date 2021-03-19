@@ -253,11 +253,11 @@ variable "additional_ips_count" {
   default     = 0
 }
 
-# variable "permissions_boundary_arn" {
-#   type        = string
-#   description = "Policy ARN to attach to instance role as a permissions boundary"
-#   default     = ""
-# }
+variable "permissions_boundary_arn" {
+  type        = string
+  description = "Policy ARN to attach to instance role as a permissions boundary"
+  default     = ""
+}
 
 variable "instance_profile" {
   type        = string
