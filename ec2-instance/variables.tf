@@ -109,11 +109,11 @@ variable "monitoring" {
   default     = true
 }
 
-variable "private_ip" {
-  type        = string
-  description = "Private IP address to associate with the instance in the VPC"
-  default     = ""
-}
+# variable "private_ip" {
+#   type        = string
+#   description = "Private IP address to associate with the instance in the VPC"
+#   default     = ""
+# }
 
 variable "source_dest_check" {
   type        = bool
