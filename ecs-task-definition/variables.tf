@@ -26,6 +26,12 @@ variable "container_definition" {
   default     = {}
 }
 
+variable "network_mode" {
+  type        = string
+  default     = "host"
+  description = "The Docker networking mode to use for the containers in the task. For Amazon ECS tasks hosted on Amazon EC2 instances, the valid values are none, bridge, awsvpc, and host"
+}
+
 variable "port_mappings" {
   type = list(object({
     containerPort = number
