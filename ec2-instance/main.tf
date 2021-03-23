@@ -107,8 +107,8 @@ resource "aws_instance" "default" {
   instance_type               = var.instance_type
   ebs_optimized               = var.ebs_optimized
   disable_api_termination     = var.disable_api_termination
-  # user_data                   = var.user_data
-  # user_data_base64            = var.user_data_base64
+  user_data                   = var.user_data
+  user_data_base64            = var.user_data_base64
   iam_instance_profile        = local.instance_profile
   associate_public_ip_address = var.associate_public_ip_address
   key_name                    = var.ssh_key_pair
@@ -134,10 +134,11 @@ resource "aws_instance" "default" {
     encrypted             = var.root_block_device_encrypted
   }
 
-  # metadata_options {
-  #   http_endpoint = var.metadata_http_endpoint_enabled ? "enabled" : "disabled"
-  #   http_tokens   = var.metadata_http_tokens_required ? "required" : "optional"
-  # }
+  metadata_options {
+    http_endpoint               = var.metadata_http_endpoint_enabled ? "enabled" : "disabled"
+    http_put_response_hop_limit = var.metadata_http_put_response_hop_limit
+    http_tokens                 = var.metadata_http_tokens_required ? "required" : "optional"
+  }
 
   tags = module.this.tags
 }

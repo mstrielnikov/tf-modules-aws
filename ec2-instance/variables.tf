@@ -15,17 +15,17 @@ variable "assign_eip_address" {
   default     = true
 }
 
-# variable "user_data" {
-#   type        = string
-#   description = "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; use `user_data_base64` instead"
-#   default     = null
-# }
+variable "user_data" {
+  type        = string
+  description = "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; use `user_data_base64` instead"
+  default     = null
+}
 
-# variable "user_data_base64" {
-#   type        = string
-#   description = "Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption"
-#   default     = null
-# }
+variable "user_data_base64" {
+  type        = string
+  description = "Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption"
+  default     = null
+}
 
 variable "instance_type" {
   type        = string
@@ -109,11 +109,11 @@ variable "monitoring" {
   default     = true
 }
 
-# variable "private_ip" {
-#   type        = string
-#   description = "Private IP address to associate with the instance in the VPC"
-#   default     = ""
-# }
+variable "private_ip" {
+  type        = string
+  description = "Private IP address to associate with the instance in the VPC"
+  default     = ""
+}
 
 variable "source_dest_check" {
   type        = bool
@@ -199,11 +199,11 @@ variable "comparison_operator" {
   default     = "GreaterThanOrEqualToThreshold"
 }
 
-# variable "metric_name" {
-#   type        = string
-#   description = "The name for the alarm's associated metric. Allowed values can be found in https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ec2-metricscollected.html"
-#   default     = "StatusCheckFailed_Instance"
-# }
+variable "metric_name" {
+  type        = string
+  description = "The name for the alarm's associated metric. Allowed values can be found in https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ec2-metricscollected.html"
+  default     = "StatusCheckFailed_Instance"
+}
 
 variable "evaluation_periods" {
   type        = number
@@ -235,11 +235,11 @@ variable "metric_threshold" {
   default     = 1
 }
 
-# variable "default_alarm_action" {
-#   type        = string
-#   default     = "action/actions/AWS_EC2.InstanceId.Reboot/1.0"
-#   description = "Default alarm action"
-# }
+variable "default_alarm_action" {
+  type        = string
+  default     = "action/actions/AWS_EC2.InstanceId.Reboot/1.0"
+  description = "Default alarm action"
+}
 
 variable "create_default_security_group" {
   type        = bool
@@ -271,17 +271,23 @@ variable "root_block_device_encrypted" {
   description = "Whether to encrypt the root block device"
 }
 
-# variable "metadata_http_tokens_required" {
-#   type        = bool
-#   default     = true
-#   description = "Whether or not the metadata service requires session tokens, also referred to as Instance Metadata Service Version 2."
-# }
+variable "metadata_http_tokens_required" {
+  type        = bool
+  default     = true
+  description = "Whether or not the metadata service requires session tokens, also referred to as Instance Metadata Service Version 2."
+}
 
-# variable "metadata_http_endpoint_enabled" {
-#   type        = bool
-#   default     = true
-#   description = "Whether the metadata service is available"
-# }
+variable "metadata_http_endpoint_enabled" {
+  type        = bool
+  default     = true
+  description = "Whether the metadata service is available"
+}
+
+variable "metadata_http_put_response_hop_limit" {
+  type        = number
+  default     = 2
+  description = "The desired HTTP PUT response hop limit (between 1 and 64) for instance metadata requests."
+}
 
 variable "kms_key_id" {
   type        = string
