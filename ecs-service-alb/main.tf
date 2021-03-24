@@ -374,6 +374,7 @@ resource "aws_ecs_service" "ignore_changes_task_definition" {
 resource "aws_ecs_service" "default" {
   count                              = local.enabled && var.ignore_changes_task_definition == false ? 1 : 0
   name                               = module.this.id
+  cluster                            = var.ecs_cluster_id
   task_definition                    = coalesce(var.task_definition, "${join("", aws_ecs_task_definition.default.*.family)}:${join("", aws_ecs_task_definition.default.*.revision)}")
   desired_count                      = var.desired_count
   deployment_maximum_percent         = var.deployment_maximum_percent
@@ -431,7 +432,6 @@ resource "aws_ecs_service" "default" {
     }
   }
 
-  cluster        = var.ecs_cluster_arn
   propagate_tags = var.propagate_tags
   tags           = var.use_old_arn ? null : module.this.tags
 

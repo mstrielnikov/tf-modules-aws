@@ -14,6 +14,12 @@ variable "ecs_cluster_arn" {
   description = "The ARN of the ECS cluster where service will be provisioned"
 }
 
+variable "ecs_cluster_id" {
+  type        = string
+  description = "The id of cluster to server the task"
+  default     = ""
+}
+
 variable "ecs_load_balancers" {
   type = list(object({
     container_name   = string
