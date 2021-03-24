@@ -348,7 +348,7 @@ resource "aws_ecs_service" "ignore_changes_task_definition" {
     }
   }
 
-  cluster        = var.ecs_cluster_arn
+  cluster        = var.ecs_cluster_id
   propagate_tags = var.propagate_tags
   tags           = var.use_old_arn ? null : module.this.tags
 
