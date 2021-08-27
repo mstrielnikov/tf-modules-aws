@@ -1,4 +1,3 @@
-# tf-modules
-
-Based on https://github.com/cloudposse/terraform-aws-elasticache-redis/blob/master/main.tf 
-Great thanks Cloudposse(https://cloudposse.com/) for them work!
+# tf-aws-eks
+Example terraform code for AWS EKS cluster.
+Deploys default EKS infra for (Cucumbernetes)[https://github.com/mstrielnikov/Cucumbernetes] project
